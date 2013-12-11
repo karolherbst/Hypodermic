@@ -1,5 +1,3 @@
-#include <boost/foreach.hpp>
-
 #include "Container.h"
 #include "ContainerBuilder.h"
 
@@ -37,7 +35,7 @@ namespace Hypodermic
 
         wasBuilt_ = true;
 
-        BOOST_FOREACH(auto callback, configurationCallbacks_)
+        for (auto callback : configurationCallbacks_)
             callback(componentRegistry);
     }
 
