@@ -2,8 +2,6 @@
 # ifndef    HYPODERMIC_REGISTRATION_BUILDER_FACTORY_HPP_
 #  define   HYPODERMIC_REGISTRATION_BUILDER_FACTORY_HPP_
 
-# include <boost/foreach.hpp>
-
 # include <Hypodermic/ComponentRegistration.h>
 # include <Hypodermic/ProvidedInstanceActivator.h>
 # include <Hypodermic/RegistrationBuilderFactory.h>
@@ -107,13 +105,13 @@ namespace Hypodermic
                                                                     registrationData.ownership(), services, typeCasters, target));
 
 
-        BOOST_FOREACH(auto preparingCallback, registrationData.preparingCallbacks())
+        for (auto preparingCallback : registrationData.preparingCallbacks())
             registration->preparing().connect(preparingCallback);
 
-        BOOST_FOREACH(auto activatingCallback, registrationData.activatingCallbacks())
+        for (auto activatingCallback : registrationData.activatingCallbacks())
             registration->activating().connect(activatingCallback);
 
-        BOOST_FOREACH(auto activatedCallback, registrationData.activatedCallbacks())
+        for (auto activatedCallback : registrationData.activatedCallbacks())
             registration->activated().connect(activatedCallback);
         
         return registration;
