@@ -2,8 +2,6 @@
 # ifndef    HYPODERMIC_ICOMPONENT_CONTEXT_HPP_
 #  define   HYPODERMIC_ICOMPONENT_CONTEXT_HPP_
 
-# include <boost/foreach.hpp>
-
 # include <Hypodermic/KeyedService.h>
 # include <Hypodermic/NullptrWorkaround.h>
 # include <Hypodermic/TypedService.h>
@@ -64,7 +62,7 @@ namespace Hypodermic
 			
         std::vector< std::shared_ptr< ServiceT > > allResults;
 
-        BOOST_FOREACH(auto registration, registrations)
+        for (auto registration : registrations)
         {
             std::shared_ptr< void > result = registration->castOrForward(service->typeInfo(),
                                                                          resolveComponent(registration));
