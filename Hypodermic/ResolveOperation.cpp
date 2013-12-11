@@ -1,5 +1,3 @@
-#include <boost/foreach.hpp>
-
 #include "DependencyResolutionException.h"
 #include "InstanceLookup.h"
 #include "ISharingLifetimeScope.h"
@@ -96,7 +94,7 @@ namespace Hypodermic
         auto completedActivations = successfulActivations_;
         resetSuccessfulActivations();
 
-        BOOST_FOREACH(auto activation, completedActivations)
+        for (auto activation : completedActivations)
             activation->complete();
     }
 
