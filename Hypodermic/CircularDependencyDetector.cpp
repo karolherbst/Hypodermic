@@ -1,5 +1,4 @@
 #include <stdexcept>
-#include <boost/foreach.hpp>
 
 #include "DependencyResolutionException.h"
 #include "IComponentRegistration.h"
@@ -37,7 +36,7 @@ namespace Hypodermic
 
         std::string dependencyGraph = display(registration);
 
-        BOOST_FOREACH(auto activation, activationStack) 
+        for (auto activation : activationStack) 
         {
             dependencyGraph = display(activation->componentRegistration()) + " -> " + dependencyGraph;
         }
@@ -56,7 +55,7 @@ namespace Hypodermic
         if (registration == nullptr)
             throw std::invalid_argument("registration");
         int registrationCount = 0;
-        BOOST_FOREACH(auto activation, activationStack)
+        for (auto activation : activationStack)
         {
             if (activation->componentRegistration() == registration)
                 ++registrationCount;
