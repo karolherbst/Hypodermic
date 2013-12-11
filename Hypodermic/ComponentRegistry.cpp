@@ -2,7 +2,6 @@
 
 #include <algorithm>
 #include <stdexcept>
-#include <boost/foreach.hpp>
 
 #include "IComponentRegistration.h"
 #include "IRegistrationSource.h"
@@ -38,7 +37,7 @@ namespace Hypodermic
     {
         boost::lock_guard< decltype (mutex_) > lock(mutex_);
 
-        BOOST_FOREACH(auto service, registration->services())
+        for (auto service : registration->services())
         {
             auto info = getServiceInfo(service);
             info->addImplementation(registration);
