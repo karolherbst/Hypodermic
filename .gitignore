@@ -1,4 +1,3 @@
-syntax: glob
 *.opensdf
 *.sdf
 *.suo
@@ -7,3 +6,4 @@ syntax: glob
 */ipch/**
 *.ipch
 *ReSharper*
+build/
