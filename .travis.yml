@@ -23,4 +23,4 @@ script:
   - cmake . -DHYPODERMIC_BUILD_TYPE=$BT
   - make -j4
 after_success:
-  - if [ -n "$COVERAGE" ]; then coveralls --exclude CMakeFiles --exclude-pattern 'CMake[^\.]*\.c(?:pp)?' --exclude-pattern '[^\.]*\.h' > /dev/null; fi
+  - if [ -n "$COVERAGE" ]; then coveralls --gcov gcov-4.8 --exclude CMakeFiles --exclude-pattern 'CMake[^\.]*\.c(?:pp)?' --exclude-pattern '[^\.]*\.h' > /dev/null; fi
