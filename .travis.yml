@@ -9,6 +9,7 @@ matrix:
   include:
     - compiler: gcc
       env: BT=SHARED CFLAGS=--coverage CXXFLAGS=--coverage COVERAGE=1
+      fast_finish: true
 before_install:
   - sudo apt-get update
   - sudo apt-get install libboost-dev libboost-signals-dev libboost-system-dev libboost-test-dev
