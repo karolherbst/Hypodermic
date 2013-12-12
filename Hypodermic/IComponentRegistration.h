@@ -29,9 +29,9 @@ namespace Hypodermic
 	class IComponentRegistration
 	{
 	public:
-        typedef boost::signal2::signal< void(PreparingData&) > Preparing;
-        typedef boost::signal2::signal< void(ActivatingData< void >&) > Activating;
-        typedef boost::signal2::signal< void(ActivatedData< void >&) > Activated;
+        typedef boost::signals2::signal< void(PreparingData&) > Preparing;
+        typedef boost::signals2::signal< void(ActivatingData< void >&) > Activating;
+        typedef boost::signals2::signal< void(ActivatedData< void >&) > Activated;
 
         virtual ~IComponentRegistration() {}
 
