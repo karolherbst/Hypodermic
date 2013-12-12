@@ -1,4 +1,4 @@
-project(Hypodermic)
+project(Hypodermic CXX)
 cmake_minimum_required(VERSION 2.6)
 
 set(HYPODERMIC_VERSION_MAJOR "0")
