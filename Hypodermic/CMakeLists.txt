@@ -109,7 +109,12 @@ set(Hypodermic_sources
     TypedService.cpp
 )
 
-add_library(Hypodermic SHARED ${Hypodermic_sources})
+set(HYPODERMIC_BUILD_TYPE "SHARED" CACHE STRING "STATIC or SHARED")
+if(NOT (HYPODERMIC_BUILD_TYPE STREQUAL "STATIC" OR HYPODERMIC_BUILD_TYPE STREQUAL "SHARED"))
+  message(FATAL_ERROR "HYPODERMIC_BUILD_TYPE has to be set to STATIC or SHARED!")
+endif()
+
+add_library(Hypodermic ${HYPODERMIC_BUILD_TYPE} ${Hypodermic_sources})
 set_target_properties(Hypodermic PROPERTIES OUTPUT_NAME hypodermic)
 set_target_properties(Hypodermic PROPERTIES VERSION ${HYPODERMIC_VERSION})
 set_target_properties(Hypodermic PROPERTIES SOVERSION ${HYPODERMIC_VERSION_MAJOR})
