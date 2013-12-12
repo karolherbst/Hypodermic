@@ -109,16 +109,13 @@ set(Hypodermic_sources
     TypedService.cpp
 )
 
-add_library(HypodermicShared SHARED ${Hypodermic_sources})
-set_target_properties(HypodermicShared PROPERTIES OUTPUT_NAME hypodermic)
-set_target_properties(HypodermicShared PROPERTIES VERSION ${HYPODERMIC_VERSION})
-set_target_properties(HypodermicShared PROPERTIES SOVERSION ${HYPODERMIC_VERSION_MAJOR})
-
-add_library(HypodermicStatic STATIC ${Hypodermic_sources})
-set_target_properties(HypodermicStatic PROPERTIES OUTPUT_NAME hypodermic)
+add_library(Hypodermic SHARED ${Hypodermic_sources})
+set_target_properties(Hypodermic PROPERTIES OUTPUT_NAME hypodermic)
+set_target_properties(Hypodermic PROPERTIES VERSION ${HYPODERMIC_VERSION})
+set_target_properties(Hypodermic PROPERTIES SOVERSION ${HYPODERMIC_VERSION_MAJOR})
 
 install(FILES ${Hypodermic_headers} DESTINATION include/Hypodermic)
-install(TARGETS HypodermicShared HypodermicStatic
+install(TARGETS Hypodermic
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib
 )
