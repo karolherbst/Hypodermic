@@ -11,22 +11,15 @@ set(HYPODERMIC_VERSION
 enable_testing()
 
 # enable gcc specific stuff
-if(CMAKE_COMPILER_IS_GNUCXX)
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL Clang)
     if (NOT CXX0x_ENABLED)
-        message(STATUS "Checking for g++ version >= 4.5")
-        execute_process(COMMAND ${CMAKE_CXX_COMPILER} -dumpversion OUTPUT_VARIABLE GCC_VERSION)
-        
-        if (GCC_VERSION VERSION_LESS 4.5)
-            message(FATAL_ERROR "g++ version is ${GCC_VERSION}")
-        endif()
-
         include(CheckCXXCompilerFlag)
         check_cxx_compiler_flag(-std=c++0x FLAG_CXX0x)
         if(FLAG_CXX0x)
             message(STATUS "C++0x features enabled")
             set(CXX0x_ENABLED ON CACHE INTERNAL "C++0x features enabled")
         else(FLAG_CXX0x)
-            message(FATAL_ERROR "g++ does not support the -std=c++0x flag")
+            message(FATAL_ERROR "CXX does not support the -std=c++0x flag")
         endif(FLAG_CXX0x)
     endif()
 
