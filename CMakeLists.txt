@@ -25,13 +25,6 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL Clang)
 
     set(COMPILER_FLAGS "-std=c++0x")
     set(WARNING_FLAGS "-W -Wall")
-    
-    if (CMAKE_BUILD_TYPE STREQUAL "debug")
-        message(STATUS "Enabling debugging symbols")
-        set(COMPILER_FLAGS "${COMPILER_FLAGS} -g")
-    else()
-        set(COMPILER_FLAGS "${COMPILER_FLAGS} -O2")
-    endif()
 endif()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILER_FLAGS} ${WARNING_FLAGS}")
