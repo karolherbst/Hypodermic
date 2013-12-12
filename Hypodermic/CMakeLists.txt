@@ -2,7 +2,7 @@ project(Hypodermic)
 cmake_minimum_required(VERSION 2.6)
 
 
-find_package(Boost)
+find_package(Boost REQUIRED)
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
 else(Boost_FOUND)
