@@ -11,9 +11,10 @@ matrix:
       env: BT=SHARED CFLAGS=--coverage CXXFLAGS=--coverage COVERAGE=1
       fast_finish: true
 before_install:
+  - echo "yes" | sudo  add-apt-repository boost-latest/ppa
   - sudo apt-get update
 install:
-  - sudo apt-get install libboost1.48-dev libboost-signals1.48-dev libboost-system1.48-dev libboost-test1.48-dev
+  - sudo apt-get install libboost1.54-dev libboost-signals1.54-dev libboost-system1.54-dev libboost-test1.54-dev
   - if [ -n "$COVERAGE" ]; then sudo pip install cpp-coveralls --use-mirrors; fi
 script:
   - cmake . -DHYPODERMIC_BUILD_TYPE=$BT
