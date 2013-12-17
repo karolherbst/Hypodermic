@@ -3,19 +3,17 @@ compiler:
   - gcc
   - clang
 env:
-  - BT=SHARED BV=1.54
-  - BT=STATIC BV=1.54
+  - BT=SHARED
+  - BT=STATIC
+  - matrix:
+    - env: BV=1.46
+    - env: BV=1.48
+    - env: BV=1.54
 matrix:
   include:
     - compiler: gcc
       env: BT=SHARED CFLAGS=--coverage CXXFLAGS=--coverage COVERAGE=1
       fast_finish: true
-  include:
-    - compiler: gcc
-      env: BV=1.46
-  include:
-    - compiler: gcc
-      env: BV=1.48
 before_install:
   - sudo add-apt-repository ppa:boost-latest/ppa -y
   - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
