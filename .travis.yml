@@ -6,9 +6,9 @@ env:
   - BT=SHARED
   - BT=STATIC
   - matrix:
-    - env: BV=1.46
-    - env: BV=1.48
-    - env: BV=1.54
+    - BV=1.46
+    - BV=1.48
+    - BV=1.54
 matrix:
   include:
     - compiler: gcc
