@@ -3,9 +3,9 @@ compiler:
   - gcc
   - clang
 env:
-  - global:
-    - BT=SHARED
-  - matrix:
+  - BT=SHARED
+  - BT=STATIC
+  matrix:
     - BV=1.46
     - BV=1.48
     - BV=1.54
