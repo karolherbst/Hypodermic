@@ -8,7 +8,11 @@ set(HYPODERMIC_VERSION
     "${HYPODERMIC_VERSION_MAJOR}.${HYPODERMIC_VERSION_MINOR}.${HYPODERMIC_VERSION_PATCH}"
 )
 
-enable_testing()
+option(WITH_TESTS "enables the build of unit tests" OFF)
+
+if(WITH_TESTS)
+  enable_testing()
+endif()
 
 # enable gcc specific stuff
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL Clang)
@@ -31,8 +35,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILER_FLAGS} ${WARNING_FLAGS}")
 
 
 add_subdirectory(Hypodermic)
-add_subdirectory(Hypodermic.Tests)
-
+if(WITH_TESTS)
+  add_subdirectory(Hypodermic.Tests)
+endif()
 
 # uninstall target
 ##################
