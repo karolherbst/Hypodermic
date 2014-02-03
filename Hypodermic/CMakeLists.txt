@@ -2,7 +2,7 @@ project(Hypodermic)
 cmake_minimum_required(VERSION 2.6)
 
 
-find_package(Boost REQUIRED)
+find_package(Boost COMPONENTS system REQUIRED)
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
 else(Boost_FOUND)
@@ -115,6 +115,7 @@ if(NOT (HYPODERMIC_BUILD_TYPE STREQUAL "STATIC" OR HYPODERMIC_BUILD_TYPE STREQUA
 endif()
 
 add_library(Hypodermic ${HYPODERMIC_BUILD_TYPE} ${Hypodermic_sources})
+target_link_libraries(Hypodermic ${Boost_SYSTEM_LIBRARY})
 set_target_properties(Hypodermic PROPERTIES OUTPUT_NAME hypodermic)
 set_target_properties(Hypodermic PROPERTIES VERSION ${HYPODERMIC_VERSION})
 set_target_properties(Hypodermic PROPERTIES SOVERSION ${HYPODERMIC_VERSION_MAJOR})
