@@ -28,4 +28,5 @@ add_test(cmake_Hypodermic.Tests
     ${CMAKE_CURRENT_BINARY_DIR}/Hypodermic.Tests --result_code=no --report_level=no
 )
 
-add_custom_command(TARGET Hypodermic.Tests POST_BUILD COMMAND ${CMAKE_CTEST_COMMAND})
+# test bugs
+add_subdirectory(GH2)
