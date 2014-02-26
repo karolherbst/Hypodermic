@@ -17,12 +17,12 @@ namespace Hypodermic
 
     bool TypedService::operator==(const Service& rhs) const
     {
-        return typeInfo_ == rhs.typeInfo();
+        return std::strcmp(typeInfo_.name(), rhs.typeInfo().name()) == 0;
     }
 
     std::size_t TypedService::hashValue() const
     {
-        return boost::hash< const char* >()(typeInfo_.name());
+        return boost::hash< std::string >()(std::string(typeInfo_.name()));
     }
 
 } // namespace Hypodermic
