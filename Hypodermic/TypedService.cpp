@@ -1,3 +1,4 @@
+#include <cstring>
 #include <boost/functional/hash.hpp>
 #include "TypedService.h"
 
