@@ -6,11 +6,12 @@
 
 #  include <Hypodermic/IComponentContext.h>
 
-#  define		CREATE(Expr)            [](Hypodermic::IComponentContext& c) -> decltype(Expr) { return (Expr); }
+#  define		CREATE(Expr)               [](Hypodermic::IComponentContext& c) -> decltype(Expr) { return (Expr); }
+#  define   CREATE_CAPTURED(Cap, Expr) Cap (Hypodermic::IComponentContext& c) -> decltype(Expr) { return (Expr); }
 
-#  define		INJECT(Dependency)      (c.resolve< Dependency >())
+#  define		INJECT(Dependency)         (c.resolve< Dependency >())
 
-#  define		INJECT_ALL(Dependency)  (c.resolveAll< Dependency >())
+#  define		INJECT_ALL(Dependency)     (c.resolveAll< Dependency >())
 
 # endif /* !HYPODERMIC_NO_HELPERS */
 
