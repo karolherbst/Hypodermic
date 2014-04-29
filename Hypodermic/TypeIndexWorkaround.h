@@ -45,7 +45,7 @@ namespace std
 
 
     template <>
-    class hash< type_index > : public std::unary_function< type_index, size_t >
+    struct hash< type_index > : public std::unary_function< type_index, size_t >
     {	// hash functor
     public:
         std::size_t operator()(const type_index& _Keyval) const
