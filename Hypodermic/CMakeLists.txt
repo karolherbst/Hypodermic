@@ -122,6 +122,7 @@ set_target_properties(Hypodermic PROPERTIES SOVERSION ${HYPODERMIC_VERSION_MAJOR
 
 install(FILES ${Hypodermic_headers} DESTINATION include/Hypodermic)
 install(TARGETS Hypodermic
+    RUNTIME DESTINATION bin
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib
 )
